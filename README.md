@@ -25,3 +25,4 @@ Intended for use on a Raspberry Pi or other Debian-based host. Successfully deve
 * [MQTT data to Sqlite DB](https://lindevs.com/save-mqtt-data-to-sqlite-database-using-python)
 * [Sqlite to Highcharts](https://www.ronan.bzh/p/dynamic-charts-with-highcharts-sqlite-and-python/)
 * [Python app as a service](https://levelup.gitconnected.com/from-python-to-daemon-how-to-turn-your-python-app-into-a-linux-service-controlled-by-systemd-d87b59adfe7a)
+* [Icon by Kiranshastry from Flaticon](https://www.flaticon.com/free-icons/line-chart)
