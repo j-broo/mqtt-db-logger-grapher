@@ -8,7 +8,7 @@ Intended for use on a Raspberry Pi or other Debian-based host. Successfully deve
 
 
 ## Installation instructions
-1. Download the release and unzip to "/etc" or another suitable folder (you may need to edit the config and service files if not using "/etc".
+1. Download the release and unzip to "/etc" or another suitable folder (you may need to edit the config and service files if not using "/etc").
 2. Edit "config.ini" to connect to your broker, choose your topics, and other settings.
 3. Run "install_services.sh" in the "service" folder to install the python scripts as services.
 4. Start services using "systemctl start mqttdblogger" or "systemctl start mqttdbgrapher".
