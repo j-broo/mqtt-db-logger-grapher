@@ -4,6 +4,15 @@ MQTT Logger Grapher is a client side software for logging MQTT topics from a bro
 ![image](https://github.com/j-broo/mqtt-db-logger-grapher/assets/26300538/8f90f811-969d-4d23-aafc-ddfcce84e17e)
 ![image](https://github.com/j-broo/mqtt-db-logger-grapher/assets/26300538/fbadf2dd-130d-45d4-bd78-f609deb37242)
 
+
+# Installation instructions
+1. Download the release and unzip to "/etc" or another suitable folder (you may need to edit the config and service files if not using "/etc".
+2. Edit "config.ini" to connect to your broker, choose your topics, and other settings.
+3. Run "install_services.sh" in the "service" folder to install the python scripts as services.
+4. Start services using "systemctl start mqttdblogger" or "systemctl start mqttdbgrapher".
+5. Check the log file for a successful conection.
+6. Access the web interface on "http://yourhost:5000/graph"
+
 ## Based on the following projects/snippets:
 
 * [MQTT data to Sqlite DB](https://lindevs.com/save-mqtt-data-to-sqlite-database-using-python)
