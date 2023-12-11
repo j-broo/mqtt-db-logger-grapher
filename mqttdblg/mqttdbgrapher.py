@@ -7,6 +7,7 @@ config = configparser.ConfigParser(interpolation=None)
 config.read('config.ini', 'UTF-8')
 
 database_file = config.get('config', 'DATABASE_FILE')
+page_title = config.get('config', 'PAGE_TITLE')
 root_topic = config.get('config', 'ROOT_TOPIC')
 default_range = int(config.get('config', 'DEFAULT_RANGE'))
 default_graph = config.get('config', 'DEFAULT_GRAPH')
@@ -24,7 +25,7 @@ def load(datasource):
 
 @app.route("/graph")
 def graph():
-    return render_template('graph.html', default_range=default_range, default_graph=default_graph, graphed_topics=graphed_topics)
+    return render_template('graph.html', page_title=page_title, default_range=default_range, default_graph=default_graph, graphed_topics=graphed_topics)
 
 if __name__ == '__main__':
     app.run(
