@@ -1,5 +1,5 @@
 # MQTT DB Logger Grapher
-MQTT Logger Grapher is a client side software for logging MQTT topics from a broker to a SQLite3 database, and displaying the data with [Highcharts](https://www.highcharts.com) in a web browser, using Python and Flask. Designed specifically to monitor power inverter data from [SolPipLog](https://github.com/njfaria/SolPipLog), but can be used for any MQTT data. The web interface is responsive, so it's suitable for desktop or mobile devices.
+MQTT Logger Grapher is a client side software for logging MQTT topics from a broker to a SQLite3 database, and displaying the data with [Highcharts](https://www.highcharts.com) in a web browser, using Python and Flask. Designed specifically to monitor power inverter data from [SolPipLog](https://github.com/njfaria/SolPipLog), but can be used for any MQTT data via a broker such as Mosquitto. The web interface is responsive, so it's suitable for desktop or mobile devices.
 
 Intended for use on a Raspberry Pi or other Debian-based host. Successfully developed and tested on a Pi 1B+, so it does not need high level hardware.
 
