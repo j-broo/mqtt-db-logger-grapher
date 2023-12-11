@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>Historical Data</title>
+      <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+      <script src="{{ url_for('static', filename='jquery-1.12.4.min.js') }}"></script>
+      <script type="text/javascript">
+         function getData(datasource, label) {
+           console.log('Data source selected: ' + datasource)
+           $.getJSON('/' + datasource + '.json', function (jsondata) {
+               // Create the chart
+               $('#container').highcharts('StockChart', {
+                   rangeSelector: {
+                       allButtonsEnabled: false,
+                       buttons: [{
+                         type: 'hour',
+                         count: 1,
+                         text: '1h'
+                       }, {
+                         type: 'hour',
+                         count: 12,
+                         text: '12h'
+                       }, {
+                         type: 'day',
+                         count: 1,
+                         text: '1d'
+                       }, {
+                         type: 'week',
+                         count: 1,
+                         text: '1w'
+                       }, {
+                         type: 'month',
+                         count: 1,
+                         text: '1m'
+                       },
+                          {
+                          type: 'all',
+                          text: 'All'
+                       }],
+                       selected: {{ default_range }}
+                   },
+                   title : {
+                       text : label
+                   },
+                   xAxis: {
+                       type: 'datetime',
+                       ordinal: false
+                   },
+                   plotOptions: {
+                       series: {
+                           gapUnit: 'relative',
+                           gapSize: 10
+                       }
+                   },
+                   series : [{
+                       name : 'Value',
+                       data : jsondata,
+                       tooltip: {
+                           valueDecimals: 2
+                       }
+                   }]
+               });
+           })
+         };
+      </script>
+   </head>
+
+   <body style="background-color:black;">
+      <script src="{{ url_for('static', filename='highstock.js') }}"></script>
+      <script src="{{ url_for('static', filename='highcharts-more.js') }}"></script>
+      <script src="{{ url_for('static', filename='exporting.js') }}"></script>
+      <script src="{{ url_for('static', filename='dark-unica.js') }}"></script>
+      <script src="{{ url_for('static', filename='broken-axis.js') }}"></script>
+      <script src="{{ url_for('static', filename='accessibility.js') }}"></script>
+
+      <div id="container" style="width: 100%; height: 390px; margin: 0 auto; border-radius: 10px; position: absolute; top: 0; left: 0;"></div>
+      <div id="select" style="position: absolute; top: 40; left: 40;">
+        <select id="datasource" onchange="getData(this.value, this.options[this.selectedIndex].text)">
+          <script type="text/javascript">
+          // debug
+          // console.log('{{ graphed_topics | tojson }}')
+          {% for topic in graphed_topics %}{
+          $("#datasource").append('<option value="{{ topic }}" {% if topic == default_graph %} selected {% endif %}>{{ graphed_topics[topic] }}</option>');
+          }
+          {% endfor %}
+          getData($("#datasource").val(), $("#datasource :selected").text())
+          </script>
+        </select>
+      </div>
+
+   </body>
+</html>

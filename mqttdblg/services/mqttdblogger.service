@@ -1,0 +1,13 @@
+[Unit]
+Description=MQTT DB Logger
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/etc/mqttdblg
+ExecStart=/usr/bin/python3 /etc/mqttdblg/mqttdblogger.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

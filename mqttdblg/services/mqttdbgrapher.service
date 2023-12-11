@@ -1,0 +1,13 @@
+[Unit]
+Description=MQTT DB Grapher
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/etc/mqttdblg
+ExecStart=/usr/bin/python3 /etc/mqttdblg/mqttdbgrapher.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
