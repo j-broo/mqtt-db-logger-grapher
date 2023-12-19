@@ -63,7 +63,7 @@ def main():
     topic TEXT NOT NULL,
     payload TEXT NOT NULL,
     PRIMARY KEY (timestamp, topic));
-    CREATE INDEX IF NOT EXISTS mqtt_log_idx ON mqtt_log(topic, timestamp, payload);
+    CREATE INDEX IF NOT EXISTS mqtt_log_idx ON mqtt_log(topic, timestamp ASC, payload);
     '''
 
     cursor = db_conn.cursor()
